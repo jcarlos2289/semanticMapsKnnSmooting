@@ -66,7 +66,7 @@ mapGeneratedPathPth = datasetPath +"/"+cnnModelName+"/generatedMapsPaths"
 
 
 #mapPathFiles=open('ListaMapsPaths.txt', 'r') #['generatedMapsPaths/clusterListPaths_average_braycurtis_0.6_Reduced.json']#
-k=5
+k=13
 clusterDic={}
 coordList = []
 categoryList=[]
@@ -124,8 +124,8 @@ for map in mapList:
 
                             neigh = KNeighborsClassifier(n_neighbors=k, weights='distance')
                             neigh.fit(xFix,yFix)
-                            if i%100==0:
-                                print(i)
+                            if i%1000==0:
+                                print(i, u)
                             i= i+1
                             #x = x.reshape(1,-1)
                             fx = neigh.predict(np.asarray(x).reshape(1,-1))
