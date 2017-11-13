@@ -48,7 +48,7 @@ mapPaths=datasetPath +"/"+cnnModelName+"/"+"generatedMapsPaths/" #"/home/jcarlos
 mapList=[]#os.listdir(mapPaths)
 mapProcessedPath = datasetPath +"/"+cnnModelName+"/mapsProcessed/"
 
-mapList.append("clusterListPaths_average_braycurtis_0.6_Aknn_5.json")
+mapList.append("clusterListPaths_average_braycurtis_0.6_Cknn_25.json")
 
 #mapPathFiles=open('ListaMapsPaths.txt', 'r') #['generatedMapsPaths/clusterListPaths_average_braycurtis_0.6_Reduced.json']#
 clusterDic={}
