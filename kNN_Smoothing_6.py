@@ -43,6 +43,8 @@ class CoordinatePoint:
 parser = argparse.ArgumentParser(description='Clustering of CNN Descriptors.', prog='clustering_script.py')
 parser.add_argument("-datapath", help="path to the directory of the dataset in the computer", action="store", metavar="/home/user/documents/SmartCity_Name")
 parser.add_argument("-cnnmodel", help="CNN model Name used for the experiments", action="store", metavar="ImageNet")
+parser.add_argument("-measure", help="Measure for Experiment 1 for mean, 2 for median", action="store", metavar="1")
+
 
 args = parser.parse_args()
 
@@ -56,12 +58,25 @@ if not len(sys.argv) > 1:
 datasetPath=  "/home/jcarlos2289/Documentos/SmartCity_SanVicente" #args.datapath# "/home/jcarlos2289/Documentos/SmartCity_SanVicente"
 cnnModelName= "Places205"#args.cnnmodel#"Places205"
 
+if int(args.measure) ==1:
+        measure=""
+elif int(args.measure) ==2:
+        measure="Median"
+else:
+        parser.print_help()
+        print("Provide Right Measure Parameter")
+	exit(0)
+        
+
+
+
+
 mapPaths="/home/jcarlos2289/Documentos/python_ws/knn/"  #datasetPath +"/"+cnnModelName+"/"+"generatedMapsPaths/"
 
 #obtaining the list of generated maps in the dataset directory
 mapList=os.listdir(mapPaths)
-mapGeneratedPath = datasetPath +"/"+cnnModelName+"/generatedMaps/"
-mapGeneratedPathPth = datasetPath +"/"+cnnModelName+"/generatedMapsPaths" 
+mapGeneratedPath = datasetPath +"/"+cnnModelName+"/generatedMaps"+measure+"/"
+mapGeneratedPathPth = datasetPath +"/"+cnnModelName+"/generatedMapsPaths"+measure
 
 
 
@@ -137,7 +152,7 @@ for map in mapList:
                             New_categoryList.append(fx[0])
                    
                             #filename
-                            fileName=datasetPath+"/"+cnnModelName+"/tagsReduced/lat="+coordDict["latitude"].replace(".",",") +"_long="+ coordDict["longitude"].replace(".",",") +".txt"
+                            fileName=datasetPath+"/"+cnnModelName+"/tagsReduced"+measure+"/lat="+coordDict["latitude"].replace(".",",") +"_long="+ coordDict["longitude"].replace(".",",") +".txt"
 
                             #x = x.reshape(1,-1)
                             #print(x)
