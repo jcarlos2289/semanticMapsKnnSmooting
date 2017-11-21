@@ -46,18 +46,18 @@ cnnModelName= "Places205" #args.cnnmodel
 if int(args.measure) ==1:
         measure=""
 elif int(args.measure) ==2:
-        measure="Median"
+        measure="_Median"
 else:
         parser.print_help()
         print("Provide Right Measure Parameter")
 	exit(0)
         
 
-mapPaths=datasetPath +"/"+cnnModelName+"/"+"generatedMapsPaths"+measure+"/"
+mapPaths=datasetPath +"/"+cnnModelName+"/"+"generatedMapsPaths/"
 
 #obtaining the list of generated maps in the dataset directory
 mapList=os.listdir(mapPaths)
-mapProcessedPath = datasetPath +"/"+cnnModelName+"/mapsProcessed"+measure+"/"
+mapProcessedPath = datasetPath +"/"+cnnModelName+"/mapsProcessed/"
 
 mapList.append("clusterListPaths_average_braycurtis_0.6_Cknn_25.json")
 

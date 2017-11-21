@@ -61,7 +61,7 @@ cnnModelName= "Places205"#args.cnnmodel#"Places205"
 if int(args.measure) ==1:
         measure=""
 elif int(args.measure) ==2:
-        measure="Median"
+        measure="_Median"
 else:
         parser.print_help()
         print("Provide Right Measure Parameter")
@@ -75,8 +75,8 @@ mapPaths="/home/jcarlos2289/Documentos/python_ws/knn/"  #datasetPath +"/"+cnnMod
 
 #obtaining the list of generated maps in the dataset directory
 mapList=os.listdir(mapPaths)
-mapGeneratedPath = datasetPath +"/"+cnnModelName+"/generatedMaps"+measure+"/"
-mapGeneratedPathPth = datasetPath +"/"+cnnModelName+"/generatedMapsPaths"+measure
+mapGeneratedPath = datasetPath +"/"+cnnModelName+"/generatedMaps/"
+mapGeneratedPathPth = datasetPath +"/"+cnnModelName+"/generatedMapsPaths"
 
 
 
